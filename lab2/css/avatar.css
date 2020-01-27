@@ -1,24 +1,28 @@
 .avatar:hover {
-  cursor: pointer;
-  background-color: lightgrey;
+    cursor: pointer;
+    background-color: lightgrey;
 }
 
 .list-avatar > .avatar {
-  border: 0.5px lightgrey solid;
+    border: 0.5px lightgrey solid;
 }
 .avatar .avatar-img {
-  display: flex;
-  align-self: center;
-  margin: 10px;
+    display: flex;
+    align-self: center;
+    margin: 10px;
 }
 
 .avatar .avatar-img {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 .avatar .avatar-name {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .avatar .avatar-description > div {
-  margin: 5px;
+    margin: 5px;
+}
+
+.avatar .btn-delete {
+    align-self: center;
 }
