@@ -1,7 +1,13 @@
 .container {
-  width: 400px;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  font-family: 'Roboto Slab', serif;
+    width: 550px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    font-family: "Roboto Slab", serif;
+}
+
+button {
+    height: 2em;
+    border: none;
+    border-radius: 5px;
 }

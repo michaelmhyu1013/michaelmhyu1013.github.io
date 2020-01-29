@@ -8,8 +8,15 @@
     align-items: center;
 }
 
-.add-artist-form input {
+.add-artist-form > form input {
     width: 75%;
     height: 2em;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 2px solid lightgrey;
     text-align: center;
+}
+
+.add-artist-form > form button {
+    width: 35%;
 }

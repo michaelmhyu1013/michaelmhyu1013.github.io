@@ -35,7 +35,7 @@
                         </form>
                     </div>
                     <div class="add-person-btn">
-                        <button onclick="toggleAddArtistModal(this)">
+                        <button onclick="toggleAddArtistModal()">
                             Add Artist
                         </button>
                     </div>
@@ -47,12 +47,15 @@
                         id="artist-name"
                         name="artist-name"
                         text="text"
+                        maxlength="40"
                         placeholder="Artist Name"
+                        required
                     />
                     <input
                         id="artist-about"
                         name="artist-about"
                         text="text"
+                        maxlength="40"
                         placeholder="About Artist"
                     />
                     <input
@@ -61,7 +64,7 @@
                         text="text"
                         placeholder="Image URL"
                     />
-                    <button type="button" onclick="addArtist(this)">Add</button>
+                    <button type="button" onclick="addArtist()">Add</button>
                 </form>
             </div>
             <div class="list-avatar"></div>

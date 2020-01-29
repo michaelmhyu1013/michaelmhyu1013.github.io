@@ -1,14 +1,11 @@
-.list-avatar{
-    display:flex;
+.list-avatar {
+    min-width: 450px;
+    display: flex;
     flex-direction: column;
     align-self: center;
 }
 
-.container > .list-avatar {
-  max-width: 300px;
-}
-
-.container > .list-avatar > .avatar {
-  display: flex;
-  flex-direction: row;
+.list-avatar > .avatar {
+    display: flex;
+    flex-direction: row;
 }
