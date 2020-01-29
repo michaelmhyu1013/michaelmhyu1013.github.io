@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Template List</title>
+        <meta name="description" content="Template List" />
+        <meta name="author" content="MichaelYu" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="../css/master.css"" />
+        <link rel="stylesheet" type="text/css" href="../css/avatar.css"" />
+        <link rel="stylesheet" type="text/css" href="../css/list.css" />
+        <link rel="stylesheet" type="text/css" href="../css/search.css" />
+        <link rel="stylesheet" type="text/css" href="../css/form.css" />
+
+        <script src="../js/list.js" defer></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="search-component">
+                <div class="search-header">
+                    <p>
+                        Artist Directory
+                    </p>
+                </div>
+                <div class="search-actions">
+                    <div class="search-input">
+                        <form action="/">
+                            <input type="text" name="artist_name" />
+                        </form>
+                    </div>
+                    <div class="add-person-btn">
+                        <button onclick="toggleAddArtistModal()">
+                            Add Artist
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="add-artist-form">
+                <form>
+                    <input
+                        id="artist-name"
+                        name="artist-name"
+                        text="text"
+                        maxlength="40"
+                        placeholder="Artist Name"
+                        required
+                    />
+                    <input
+                        id="artist-about"
+                        name="artist-about"
+                        text="text"
+                        maxlength="40"
+                        placeholder="About Artist"
+                    />
+                    <input
+                        id="artist-image"
+                        name="artist-image"
+                        text="text"
+                        placeholder="Image URL"
+                    />
+                    <button type="button" onclick="addArtist()">Add</button>
+                </form>
+            </div>
+            <div class="list-avatar"></div>
+        </div>
+    </body>
+</html>
