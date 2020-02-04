@@ -98,7 +98,6 @@ const saveToLocalStorage = (id, name, about, imageURL) => {
 };
 
 const search = value => {
-    console.log(value);
     let avatars = [...document.getElementsByClassName("avatar")];
     if (!value) {
         avatars.forEach(avatar => {
