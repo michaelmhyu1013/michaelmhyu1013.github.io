@@ -30,9 +30,16 @@ const addArtist = () => {
 };
 
 const deleteArtist = id => {
-    let avatarList = document.querySelector(".list-avatar");
-    let avatarToDelete = document.getElementById(id);
+    const avatarList = document.querySelector(".list-avatar");
+    const avatarToDelete = document.getElementById(id);
     avatarList.removeChild(avatarToDelete);
+    let avatars = JSON.parse(localStorage.getItem("avatars"));
+    avatars.forEach((avatar, index) => {
+        if (avatar.id === id) {
+            avatars.splice(index, 1);
+        }
+    });
+    localStorage.setItem("avatars", JSON.stringify(avatars));
 };
 
 const toggleModal = elem => {
@@ -102,9 +109,10 @@ const saveToLocalStorage = (id, name, about, imageURL) => {
 
 const loadListFromLocalStorage = (() => {
     // to read from localstorage
-    var avatars = JSON.parse(localStorage.getItem("avatars"));
-    avatars.forEach(avatar => {
-        console.log(avatar);
-        loadAvatar(avatar);
-    });
+    let avatars = JSON.parse(localStorage.getItem("avatars"));
+    if (avatars) {
+        avatars.forEach(avatar => {
+            loadAvatar(avatar);
+        });
+    }
 })();
