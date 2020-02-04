@@ -97,11 +97,21 @@ const saveToLocalStorage = (id, name, about, imageURL) => {
     localStorage.setItem("avatars", avatarStorageStr);
 };
 
-const searchArtist = () => {
+const search = value => {
+    console.log(value);
     let avatars = [...document.getElementsByClassName("avatar")];
+    if (!value) {
+        avatars.forEach(avatar => {
+            avatar.style.display = "flex";
+        });
+    }
+};
+
+const searchArtist = () => {
     const searchValue = document
         .querySelector("#search-input")
         .value.toLowerCase();
+    let avatars = [...document.getElementsByClassName("avatar")];
 
     if (!searchValue) {
         avatars.forEach(avatar => {

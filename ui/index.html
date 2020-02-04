@@ -30,11 +30,14 @@
                 </div>
                 <div class="search-actions">
                     <div class="search-input">
-                        <form action="/">
+                        <form action="">
                             <input
                                 id="search-input"
                                 type="text"
                                 name="artist_name"
+                                onkeyup="search(this.value)"
+                                onpaste="search(this.value)"
+                                onchange="search(this.value)"
                             />
                         </form>
                     </div>
