@@ -1,9 +1,3 @@
-const toggleAddArtistModal = () => {
-    const addArtistForm = document.querySelector(".add-artist-form");
-    toggleModal(addArtistForm);
-    addArtistForm.firstElementChild.reset();
-};
-
 const addArtist = () => {
     const addArtistForm = document.querySelector(".add-artist-form");
     const artistName = document.getElementById("artist-name").value;
@@ -27,30 +21,6 @@ const addArtist = () => {
     artistList.appendChild(avatar);
 
     saveToLocalStorage(avatarID, artistName, artistAbout, artistImageURL);
-};
-
-const deleteArtist = id => {
-    const avatarList = document.querySelector(".list-avatar");
-    const avatarToDelete = document.getElementById(id);
-    avatarList.removeChild(avatarToDelete);
-    let avatars = JSON.parse(localStorage.getItem("avatars"));
-    avatars.forEach((avatar, index) => {
-        if (avatar.id === id) {
-            avatars.splice(index, 1);
-        }
-    });
-    localStorage.setItem("avatars", JSON.stringify(avatars));
-};
-
-const toggleModal = elem => {
-    elem.style.display = elem.style.display === "block" ? "none" : "block";
-};
-
-const loadAvatar = avatar => {
-    const artistList = document.querySelector(".list-avatar");
-    artistList.appendChild(
-        createAvatar(avatar.id, avatar.name, avatar.about, avatar.imageURL)
-    );
 };
 
 const createAvatar = (id, name, about, imageURL) => {
@@ -93,6 +63,26 @@ const createAvatar = (id, name, about, imageURL) => {
     return avatar;
 };
 
+const deleteArtist = id => {
+    const avatarList = document.querySelector(".list-avatar");
+    const avatarToDelete = document.getElementById(id);
+    avatarList.removeChild(avatarToDelete);
+    let avatars = JSON.parse(localStorage.getItem("avatars"));
+    avatars.forEach((avatar, index) => {
+        if (avatar.id === id) {
+            avatars.splice(index, 1);
+        }
+    });
+    localStorage.setItem("avatars", JSON.stringify(avatars));
+};
+
+const loadAvatar = avatar => {
+    const artistList = document.querySelector(".list-avatar");
+    artistList.appendChild(
+        createAvatar(avatar.id, avatar.name, avatar.about, avatar.imageURL)
+    );
+};
+
 const saveToLocalStorage = (id, name, about, imageURL) => {
     let storage = localStorage.getItem("avatars");
     let avatarStorage = storage ? JSON.parse(storage) : [];
@@ -105,6 +95,36 @@ const saveToLocalStorage = (id, name, about, imageURL) => {
 
     let avatarStorageStr = JSON.stringify(avatarStorage);
     localStorage.setItem("avatars", avatarStorageStr);
+};
+
+const searchArtist = () => {
+    let avatars = [...document.getElementsByClassName("avatar")];
+    const searchValue = document
+        .querySelector("#search-input")
+        .value.toLowerCase();
+
+    if (!searchValue) {
+        avatars.forEach(avatar => {
+            avatar.style.display = "flex";
+        });
+    }
+
+    avatars.forEach(avatar => {
+        let nameDiv = avatar.children[1].firstChild;
+        if (!nameDiv.textContent.toLowerCase().includes(searchValue)) {
+            avatar.style.display = "none";
+        }
+    });
+};
+
+const toggleModal = elem => {
+    elem.style.display = elem.style.display === "block" ? "none" : "block";
+};
+
+const toggleAddArtistModal = () => {
+    const addArtistForm = document.querySelector(".add-artist-form");
+    toggleModal(addArtistForm);
+    addArtistForm.firstElementChild.reset();
 };
 
 const loadListFromLocalStorage = (() => {

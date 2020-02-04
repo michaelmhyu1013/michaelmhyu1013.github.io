@@ -31,12 +31,21 @@
                 <div class="search-actions">
                     <div class="search-input">
                         <form action="/">
-                            <input type="text" name="artist_name" />
+                            <input
+                                id="search-input"
+                                type="text"
+                                name="artist_name"
+                            />
                         </form>
                     </div>
                     <div class="add-person-btn">
                         <button onclick="toggleAddArtistModal()">
-                            Add Artist
+                            Add
+                        </button>
+                    </div>
+                    <div class="search-person-btn">
+                        <button onclick="searchArtist()">
+                            Search
                         </button>
                     </div>
                 </div>
