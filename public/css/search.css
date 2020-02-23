@@ -18,7 +18,7 @@
 }
 
 .search-component .search-input {
-    width: 75%;
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -28,4 +28,8 @@
 
 .search-component .add-person-btn button {
     margin-left: 20px;
+}
+
+.search-component .search-input form {
+    display: flex;
 }
