@@ -107,6 +107,7 @@ const search = value => {
 };
 
 const searchArtist = () => {
+    console.log("searching");
     const searchValue = document
         .querySelector("#search-input")
         .value.toLowerCase();

@@ -34,13 +34,13 @@
     margin: 5px;
 }
 
-.avatar .btn-delete {
+.avatar form {
     margin-left: auto;
     margin-right: 5%;
     display: flex;
 }
 
-.avatar .btn-delete button {
+.avatar form .btn-delete {
     align-self: center;
     color: white;
     background-color: red;

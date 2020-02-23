@@ -1,0 +1,56 @@
+<body>
+    <div class="container">
+        <div class="search-component">
+            <div class="search-header">
+                <p>
+                    Artist Directory
+                </p>
+            </div>
+            <div class="search-actions">
+                <div class="search-input">
+                    <form action="/artists" method="GET">
+                        <input id="search-input" type="text" name="search" />
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="add-person-btn">
+                    <button onclick="toggleAddArtistModal()">
+                        Add
+                    </button>
+                </div>
+                {{!-- <div class="search-person-btn">
+                    <button onclick="searchArtist()">
+                        Search
+                    </button>
+                </div> --}}
+            </div>
+        </div>
+        <div class="add-artist-form">
+            <form method="POST" action="/artists/add">
+                <input id="artist-name" name="name" text="text" maxlength="40" placeholder="Artist Name" required />
+                <input id="artist-about" name="about" text="text" maxlength="40" placeholder="About Artist" />
+                <input id="artist-image" name="image" text="text" placeholder="Image URL" />
+                <button type="submit" onclick="handleSubmit()" value="Add" />
+            </form>
+        </div>
+        <div class="list-avatar">
+            {{#each artists as |value key|}}
+            <div id={{key}}{{value.name}} class="avatar">
+                <div class="avatar-img">
+                    <img src={{value.image}} />
+                </div>
+                <div class="avatar-description">
+                    <div class="avatar-name">{{value.name}}</div>
+                    <div class="avatar-location">{{value.about}}</div>
+                </div>
+                <form action="/artists/delete/{{key}}{{value.name}}" method="POST">
+                    <button class="btn-delete" type="submit">Delete</button>
+                </form>
+
+                </form>
+                {{!-- <div class="btn-delete">
+                </div> --}}
+            </div>
+            {{/each}}
+        </div>
+</body>
