@@ -10,13 +10,13 @@
                 <div class="search-input">
                     <form action="/artists" method="GET">
                         <input id="search-input" type="text" name="search" />
-                        <div class="add-person-btn">
-                            <button onclick="toggleAddArtistModal()">
-                                Add
-                            </button>
-                        </div>
                         <button type="submit">Search</button>
                     </form>
+                    <div class="add-person-btn">
+                        <button onclick="toggleAddArtistModal()">
+                            Add
+                        </button>
+                    </div>
                 </div>
                 {{!-- <div class="search-person-btn">
                     <button onclick="searchArtist()">
@@ -30,7 +30,7 @@
                 <input id="artist-name" name="name" text="text" maxlength="40" placeholder="Artist Name" required />
                 <input id="artist-about" name="about" text="text" maxlength="40" placeholder="About Artist" />
                 <input id="artist-image" name="image" text="text" placeholder="Image URL" />
-                <button type="submit" onclick="handleSubmit()" value="Add" />
+                <button type="submit" onclick="handleSubmit()" value="Add">Add</button>
             </form>
         </div>
         <div class="list-avatar">

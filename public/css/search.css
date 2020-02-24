@@ -19,6 +19,7 @@
 
 .search-component .search-input {
     width: 100%;
+    display: flex;
     margin-bottom: 20px;
 }
 
@@ -31,5 +32,6 @@
 }
 
 .search-component .search-input form {
+    width:90%;
     display: flex;
 }
