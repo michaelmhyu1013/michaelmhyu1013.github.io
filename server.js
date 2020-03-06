@@ -6,7 +6,7 @@ var path = require("path");
 var app = express();
 
 const port = 8000;
-const testRoutes = require("./routes/testRoutes");
+const mainRoutes = require("./routes/mainRoutes");
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
@@ -29,4 +29,4 @@ app.listen(process.env.PORT || port, () => {
     console.log(`Server listening on port: ${port}`);
 });
 
-app.use(testRoutes);
+app.use(mainRoutes);

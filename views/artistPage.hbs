@@ -1,3 +1,7 @@
+<header>
+    {{>header}}
+</header>
+
 <body>
     <div class="container">
         <div class="search-component">
@@ -35,15 +39,15 @@
         </div>
         <div class="list-avatar">
             {{#each artists as |value key|}}
-            <div id={{key}}{{value.name}} class="avatar">
+            <div id={{id}}{{value.name}} class="avatar">
                 <div class="avatar-img">
                     <img src={{value.image}} />
                 </div>
                 <div class="avatar-description">
                     <div class="avatar-name">{{value.name}}</div>
-                    <div class="avatar-location">{{value.about}}</div>
+                    <div class="avatar-location">{{value.description}}</div>
                 </div>
-                <form action="/artists/delete/{{key}}{{value.name}}" method="POST">
+                <form action="/artists/delete/{{id}}" method="POST">
                     <button class="btn-delete" type="submit">Delete</button>
                 </form>
 

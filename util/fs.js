@@ -1,12 +1,21 @@
-const fs = require("fs");
-const fsPromises = require("fs").promises;
-const path = require("path");
+"use strict";
 
+const fsPromises = require("fs").promises;
+
+const artistModel = require("../models/artistModel");
 const artistFilePath = "artists.txt";
 
 const controller = {
     addArtist: (req, res, next) => {
         let storage;
+        let newArtist = {
+            name: req.body.name,
+            about: req.body.about,
+            image: req.body.image,
+        };
+
+        artistModel.addArtist(newArtist);
+
         fsPromises
             .readFile(artistFilePath, "utf-8")
             .then(data => {
@@ -83,21 +92,15 @@ const controller = {
                 } catch (err) {
                     console.log("No artists: ", err);
                 }
-                return res
-                    .status(200)
-                    .render(
-                        "artistPage",
-                        req.query.search ? filteredResponse : response
-                    );
+                return res.status(200).render("artistPage", {
+                    title: "Artist Directory",
+                    response: req.query.search ? filteredResponse : response,
+                });
             })
             .catch(err => {
                 console.log("error fetching", err);
                 next(err);
             });
     },
-    init: (req, res) => {
-        res.sendFile(path.join(__dirname, "../views", "index.html"));
-    },
 };
 
-module.exports = controller;

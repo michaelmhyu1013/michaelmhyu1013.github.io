@@ -1,0 +1,13 @@
+header .nav-bar {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: gold;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .nav-bar .logout-button {
+    color: white;
+    background-color: darkgrey;
+}
